@@ -20,5 +20,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+
+        $this->call([
+            TypeSeeder::class, //prima si deve fare il seeder dei tipi e poi del postseeder 
+            ProjectSeeder::class
+        ]);
     }
 }
