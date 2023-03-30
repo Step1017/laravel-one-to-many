@@ -23,6 +23,7 @@
                             <th scope="col">Descrizione</th>
                             <th scope="col">Link</th>
                             <th scope="col">Preview</th>
+                            <th scope="col">Tipologia</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -33,6 +34,7 @@
                                 <td>{{ $project->description }}</td>
                                 <td>{{ $project->link }}</td>
                                 <td>{{ $project->image }}</td>
+                                <td>{{ $project->type ? $project->type->name : 'Nessuna tipologia' }}</td>
                                 <td>
                                     <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-primary">
                                         <i class="fa-solid fa-magnifying-glass"></i>
