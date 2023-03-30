@@ -17,7 +17,14 @@
                     Slug: {{ $project->slug }}
                 </h6>
                 <h3>
-                    Tipologia: {{ $project->type ? $project->type->name : 'Nessuna tipologia di appartenenza' }}
+                    Tipologia:
+                    @if ($project->type)
+                        <a href="{{ route('admin.types.show', $project->type->id) }}">
+                            {{ $project->type->name }}
+                        </a>
+                    @else
+                        Nessuna tipologia
+                    @endif
                 </h3>
                 <p>
                     {{ $project->description }}

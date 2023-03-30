@@ -34,7 +34,15 @@
                                 <td>{{ $project->description }}</td>
                                 <td>{{ $project->link }}</td>
                                 <td>{{ $project->image }}</td>
-                                <td>{{ $project->type ? $project->type->name : 'Nessuna tipologia' }}</td>
+                                <td>
+                                    @if ($project->type)
+                                        <a href="{{ route('admin.types.show', $project->type->id) }}">
+                                            {{ $project->type->name }}
+                                        </a>
+                                    @else
+                                        Nessuna tipologia
+                                    @endif
+                                </td>
                                 <td>
                                     <a href="{{ route('admin.projects.show', $project->id) }}" class="btn btn-primary">
                                         <i class="fa-solid fa-magnifying-glass"></i>
