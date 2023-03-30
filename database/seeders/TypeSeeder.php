@@ -21,12 +21,13 @@ class TypeSeeder extends Seeder
     public function run()
     {
         $types = [
-            'html',
-            'css',
-            'javascript', 
-            'vue',
-            'php',
-            'laravel'
+            'Ecommerce',
+            'Portfolio',
+            'Blog',
+            'Business',
+            'Social Network',
+            'Management',
+            'Forum'
         ];
 
         foreach ($types as $type) {

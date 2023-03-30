@@ -16,6 +16,9 @@
                 <h6> 
                     Slug: {{ $project->slug }}
                 </h6>
+                <h3>
+                    Tipologia: {{ $project->type ? $project->type->name : 'Nessuna tipologia di appartenenza' }}
+                </h3>
                 <p>
                     {{ $project->description }}
                 </p>
