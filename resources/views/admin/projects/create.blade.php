@@ -50,6 +50,17 @@
                             placeholder="Inserisci il link del progetto...">
                     </div>
                     <div class="mb-3">
+                        <label for="type_id">
+                            Tipologia
+                        </label>
+                        <select name="type_id" id="type_id" class="form-select">
+                            <option value="">Nessuna tipologia</option>
+                            @foreach ($types as $type )
+                                <option value="{{ $type->id }}">{{ $type->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label for="preview" class="form-label">Preview</label>
                         <input 
                             type="file" 
