@@ -7,6 +7,9 @@ use App\Models\Type;
 use App\Http\Requests\StoreTypeRequest;
 use App\Http\Requests\UpdateTypeRequest;
 
+//Helpers:
+use Illuminate\Support\Str;
+
 class TypeController extends Controller
 {
     /**
@@ -28,7 +31,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.types.create');
     }
 
     /**
@@ -39,7 +42,12 @@ class TypeController extends Controller
      */
     public function store(StoreTypeRequest $request)
     {
-        //
+        $data = $request->validated();
+        $data['slug'] = Str::slug($data['name']);
+
+        $newType = Type::create($data);
+
+        return redirect()->route('admin.types.show', $newType->id)->with('success', 'Nuova tipologia creata con successo');
     }
 
     /**
